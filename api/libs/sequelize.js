@@ -6,6 +6,7 @@ const sequelize = new Sequelize(
   {
     dialect: "postgres",
     logging: true,
+    dialectModule: require("pg"),
   },
 );
 
