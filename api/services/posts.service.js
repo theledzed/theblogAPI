@@ -11,9 +11,10 @@ class PostsService {
   }
 
   async findOne(id) {
-    const product = this.post.find((item) => item.id === id);
-    if (product) {
-      return product;
+    const rta = await models.Post.findAll();
+    const post = rta.find((item) => item.id == id);
+    if (post) {
+      return post;
     } else {
       throw new Error(`Post whit id ${id} not found`);
     }
