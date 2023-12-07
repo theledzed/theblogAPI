@@ -28,7 +28,6 @@ class PostsService {
   }
 
   async findOne(id) {
-    const name = this.getTotal();
     const product = this.post.find((item) => item.id === id);
     if (product) {
       return product;
