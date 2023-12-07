@@ -1,30 +1,13 @@
+const { models } = require("../libs/sequelize");
 class PostsService {
-  constructor() {
-    this.post = [
-      {
-        name: "Post 1",
-        author: "Cris Flores",
-        date: "",
-        content: "",
-        id: "1",
-      },
-      {
-        name: "Post 2",
-        author: "Cris Flores",
-        date: "",
-        content: "",
-        id: "2",
-      },
-    ];
-  }
-
   async create(body) {
-    this.post.push(body);
-    return body;
+    const newPost = await models.Post.create(body);
+    return newPost;
   }
 
   async find() {
-    return this.post;
+    const rta = await models.Post.findAll();
+    return rta;
   }
 
   async findOne(id) {
